@@ -1,7 +1,30 @@
-import { Menu } from "@grammyjs/menu";
+import { Keyboard } from "grammy";
 
-const menu = new Menu("my-menu-identifier")
-  .text("A", (ctx) => ctx.reply("You pressed A!"))
-  .text("B", (ctx) => ctx.reply("You pressed B!"));
+const districtMenu = new Keyboard()
+  .text("Gondar Zuria")
+  .text("East Dembia")
+  .resized();
 
-export default menu;
+const gzMenu = new Keyboard()
+  .text("Chinchaye")
+  .text("Debre Selam")
+  .row()
+  .text("Degola")
+  .text("Firqa Dangurie")
+  .row()
+  .text("Back")
+  .resized();
+
+const edMenu = new Keyboard()
+  .text("Arebia")
+  .text("Fenja")
+  .row()
+  .text("Jangua")
+  .text("Sufankara")
+  .row()
+  .text("Back")
+  .resized();
+
+export default gzMenu;
+
+export { districtMenu, gzMenu, edMenu };
