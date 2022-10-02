@@ -44,6 +44,19 @@ const ROW = `
     </tr>
   `;
 
+const ROW_LAST = `
+  <tr style="background-color: rgb(230, 230, 230)">
+      <td class="center bold" >__age__</td>
+      <td class="bold">__male_case__</td>
+      <td class="bold">__male_control__</td>
+      <td class="bold">__female_case__</td>
+      <td class="bold">__female_control__</td>
+      <td class="bold">__case_total__</td>
+      <td class="bold">__control_total__</td>
+      <td class="bold">__all_sum__</td>
+    </tr>
+  `;
+
 const HTML = `
     <html>
         <head>
@@ -59,17 +72,23 @@ const HTML = `
                     padding: 4;
                 }
                 table {
-                    margin: 4;
+                    margin-left:auto; 
+                    margin-right:auto;
                 }
                 td {
                     text-align: right;
                 }
                 td.center {
                     text-align: center;
+                    
+                }
+                td.bold {
+                  font-weight: bold;
                 }
             </style>
         </head>
         <body>
+        <br />
             <table>
                 <tr style="background-color: rgb(230, 230, 230)">
                     <th colspan="8">__health_facility__</th>
@@ -81,18 +100,18 @@ const HTML = `
                     <th colspan="3">Total</th>
                 </tr>
                 <tr style="background-color: rgb(230, 230, 230)">
-                    <td class="center">Age</td>
-                    <td class="center">Case</td>
-                    <td class="center">Control</td>
-                    <td class="center">Case</td>
-                    <td class="center">Control</td>
-                    <td class="center">Case</td>
-                    <td class="center">Control</td>
-                    <td class="center">Total</td>
+                    <td class="center bold">Age</td>
+                    <td class="center bold">Case</td>
+                    <td class="center bold">Control</td>
+                    <td class="center bold">Case</td>
+                    <td class="center bold">Control</td>
+                    <td class="center bold">Case</td>
+                    <td class="center bold">Control</td>
+                    <td class="center bold">Total</td>
                 </tr>
                 __rows__
             </table>
         </body>
     </html>`;
 
-export { FIELDS, ROW, HTML };
+export { FIELDS, ROW, ROW_LAST, HTML };
