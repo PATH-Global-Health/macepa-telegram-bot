@@ -1,11 +1,11 @@
 import { Keyboard } from "grammy";
 
-const districtMenu = new Keyboard()
+const districtKeyboard = new Keyboard()
   .text("Gondar Zuria")
   .text("East Dembia")
   .resized();
 
-const gzMenu = new Keyboard()
+const gzKeyboard = new Keyboard()
   .text("Chinchaye")
   .text("Debre Selam")
   .row()
@@ -15,7 +15,7 @@ const gzMenu = new Keyboard()
   .text("Back")
   .resized();
 
-const edMenu = new Keyboard()
+const edKeyboard = new Keyboard()
   .text("Arebia")
   .text("Fenja")
   .row()
@@ -25,6 +25,6 @@ const edMenu = new Keyboard()
   .text("Back")
   .resized();
 
-export default gzMenu;
+export default gzKeyboard;
 
-export { districtMenu, gzMenu, edMenu };
+export { districtKeyboard, gzKeyboard, edKeyboard };

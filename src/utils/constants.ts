@@ -114,4 +114,17 @@ const HTML = `
         </body>
     </html>`;
 
-export { FIELDS, ROW, ROW_LAST, HTML };
+const ORG_UNITS: { [key: string]: string } = {
+  E42T5wtktJL: "Gondar Zuria",
+  V1Ora4NbSEE: "East Dembia",
+  ZqRY2qejFe8: "Arebia",
+  LkNpXjhXdJO: "Fenja",
+  Nimdjs72wnV: "Jangua",
+  oNlTbCiJamP: "Sufankara",
+  PP27kXYrC7p: "Chinchaye",
+  tAKQdfV6Qqa: "Debre Selam",
+  hLWb32BOEpa: "Degola",
+  UNdYuOEbHEi: "Firqa Dangurie",
+};
+
+export { FIELDS, ROW, ROW_LAST, HTML, ORG_UNITS };

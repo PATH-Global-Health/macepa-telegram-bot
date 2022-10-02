@@ -10,8 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "@grammyjs/menu": "^1.1.2",
-    "@grammyjs/parse-mode": "^1.4.0",
-    "@grammyjs/runner": "^1.0.4",
     "@types/node-schedule": "^2.1.0",
     "axios": "^0.27.2",
     "dotenv": "^16.0.2",
