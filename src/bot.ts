@@ -77,8 +77,10 @@ bot.on("message:text", async (ctx) => {
 
 // Start the bot.
 bot.start();
-
-const job = schedule.scheduleJob("*/5 * * * *", async () => {
+// At every 5th minute.
+// "*/5 * * * *"
+//At 02:00.
+const job = schedule.scheduleJob("0 2 * * *", async () => {
   for (const key in ORG_UNITS) {
     const data = await getData(key);
     const html = generateTable(ORG_UNITS[key], data.data["rows"]);
