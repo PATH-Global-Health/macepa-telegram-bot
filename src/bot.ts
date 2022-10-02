@@ -41,9 +41,32 @@ bot.on("message:text", async (ctx) => {
     case "Gondar Zuria":
       reply(ctx, gzKeyboard, "./images/E42T5wtktJL.png");
       break;
+    case "Chinchaye":
+      reply(ctx, gzKeyboard, "./images/PP27kXYrC7p.png");
+      break;
+    case "Debre Selam":
+      reply(ctx, gzKeyboard, "./images/tAKQdfV6Qqa.png");
+      break;
+    case "Degola":
+      reply(ctx, gzKeyboard, "./images/hLWb32BOEpa.png");
+      break;
+    case "Firqa Dangurie":
+      reply(ctx, gzKeyboard, "./images/UNdYuOEbHEi.png");
+      break;
     case "East Dembia":
       reply(ctx, edKeyboard, "./images/V1Ora4NbSEE.png");
-
+      break;
+    case "Arebia":
+      reply(ctx, edKeyboard, "./images/ZqRY2qejFe8.png");
+      break;
+    case "Fenja":
+      reply(ctx, edKeyboard, "./images/LkNpXjhXdJO.png");
+      break;
+    case "Jangua":
+      reply(ctx, edKeyboard, "./images/Nimdjs72wnV.png");
+      break;
+    case "Sufankara":
+      reply(ctx, edKeyboard, "./images/oNlTbCiJamP.png");
       break;
     case "Back":
       await ctx.reply("Select a district", {
