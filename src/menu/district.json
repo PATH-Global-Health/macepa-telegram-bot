@@ -43,12 +43,8 @@
    ],
    "metaData":{
       "items":{
-         "nFsQdWKXfCw":{
-            "name":"0-4 years, Female, Control"
-         },
-         "AMJSxFZTfMN":{
-            "name":"5-14 years, Female, Case"
-         },
+         
+         
          "202208":{
             "name":"August 2022"
          },
@@ -94,78 +90,50 @@
          "dx":{
             "name":"Data"
          },
-         "m76dGM2t90L":{
-            "name":"50 years and more, Male, Case"
-         },
-         "NfaF1d0UQdp":{
-            "name":"0-4 years, Male, Control"
-         },
-         "NXCM23Lsuxs":{
-            "name":"0-4 years, Male, Case"
-         },
-         "PUHXYWByn6m":{
-            "name":"50 years and more, Female, Control"
-         },
-         "TmGyxssVF45":{
-            "name":"5-14 years, Male, Case"
-         },
-         "CRsi2z2hJiT":{
-            "name":"25-49 years, Male, Case"
-         },
-         "pp6AZ1BhZ8s":{
-            "name":"15-24 years, Male, Control"
-         },
-         "FmJIeOvs5ur":{
-            "name":"25-49 years, Male, Control"
-         },
-         "MdfQxodo9yj":{
-            "name":"50 years and more, Male, Control"
-         },
-         "Z5JVLHAkzcv":{
-            "name":"50 years and more, Female, Case"
-         },
+         
+         ,
+         
+         
+         
+        
+         
+         
+         
+         
+         
+         
+         
          "ou":{
             "name":"Organisation unit"
          },
-         "aGn3RPbHwNZ":{
-            "name":"25-49 years, Female, Control"
-         },
-         "gGlCe1nvCSh":{
-            "name":"0-4 years, Female, Case"
-         },
-         "cywpqwadTED":{
-            "name":"15-24 years, Male, Case"
-         },
+         
+         
+         
+         
+         
          "co":{
             "name":"Category option combo"
          },
-         "RnnwJbMBIQc":{
-            "name":"15-24 years, Female, Case"
-         },
-         "vi57aI8adg2":{
-            "name":"15-24 years, Female, Control"
-         },
-         "gBTFi2oo186":{
-            "name":"25-49 years, Female, Case"
-         },
+         
+         
+         
+         
+         
+         
          "202201":{
             "name":"January 2022"
          },
          "E42T5wtktJL":{
             "name":"Gondar Zuria"
          },
-         "VG2053f6d6T":{
-            "name":"5-14 years, Male, Control"
-         },
+         
          "pe":{
             "name":"Period"
          },
          "SyQlNwchFeS":{
             "name":"Participant"
          },
-         "PO1D9yL2yZE":{
-            "name":"5-14 years, Female, Control"
-         }
+         
       },
       "dimensions":{
          "dx":[

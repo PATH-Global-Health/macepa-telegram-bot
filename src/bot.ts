@@ -27,7 +27,7 @@ bot.command(
 
 bot.hears("Gondar Zuria", async (ctx) => {
   const data = await getData("E42T5wtktJL");
-  const html = generateTable(data);
+  const html = generateTable("Gondar Zuria", data.data["rows"]);
   await ctx.reply("...", {
     reply_markup: { remove_keyboard: true },
   });
@@ -45,7 +45,7 @@ bot.hears("Gondar Zuria", async (ctx) => {
 
 bot.hears("East Dembia", async (ctx) => {
   const data = await getData("V1Ora4NbSEE");
-  const html = generateTable(data);
+  const html = generateTable("East Dembia", data.data["rows"]);
   await ctx.reply("...", {
     reply_markup: { remove_keyboard: true },
   });

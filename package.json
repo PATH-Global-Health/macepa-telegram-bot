@@ -15,7 +15,8 @@
     "dotenv": "^16.0.2",
     "grammy": "^1.11.1",
     "html-to-image": "^1.10.8",
-    "node-html-to-image": "^3.2.4"
+    "node-html-to-image": "^3.2.4",
+    "node-schedule": "^2.1.0"
   },
   "devDependencies": {
     "ts-jest": "^29.0.2",

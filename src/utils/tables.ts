@@ -1,98 +1,65 @@
-let html = `<html>
-<head>
-    <style>
-        body {
-          width: 500px;
-          height: 250px;
-        }
-        table, th, td {
-          border: 1px solid black;
-          border-collapse: collapse;
-          font-size: 0.875em;
-          padding: 4
-        }
-        td {
-            text-align: right;
-        }
-        td.center {
-            text-align: center;
-        }
-        </style>
-</head>
-<body>
-    <table>
-        <tr style="background-color: rgb(230, 230, 230)">
-            <th>&nbsp;</th>
-            <th colspan="2">Male</th>
-            <th colspan="2">Female</th>
-            <th colspan="3">Total</th>
-          </tr>
-          <tr style="background-color: rgb(230, 230, 230)">
-            <td class="center">Age</td>
-            <td class="center">Case</td>
-            <td class="center">Control</td>
-            <td class="center">Case</td>
-            <td class="center">Control</td>
-            <td class="center">Case</td>
-            <td class="center">Control</td>
-            <td class="center">Total</td>
-          </tr>
-          <tr>
-            <td style="background-color: rgb(230, 230, 230)">0-4 years</td>
-            <td>125</td>
-            <td>2</td>
-            <td>1</td>
-            <td>3</td>
-            <td>6</td>
-            <td>5</td>
-            <td>1</td>
-          </tr>
-          <tr>
-            <td>5-14 years</td>
-            <td>5</td>
-            <td>2</td>
-            <td>1</td>
-            <td>3</td>
-            <td>6</td>
-            <td>5</td>
-            <td>1</td>
-          </tr>
-          <tr>
-            <td>15-24 years</td>
-            <td>5</td>
-            <td>2</td>
-            <td>1</td>
-            <td>3</td>
-            <td>6</td>
-            <td>5</td>
-            <td>1</td>
-          </tr>
-          <tr>
-            <td>25-49 years</td>
-            <td>5</td>
-            <td>2</td>
-            <td>1</td>
-            <td>3</td>
-            <td>6</td>
-            <td>5</td>
-            <td>1</td>
-          </tr>
-          <tr>
-            <td>50 years and more</td>
-            <td>5</td>
-            <td>2</td>
-            <td>1</td>
-            <td>3</td>
-            <td>6</td>
-            <td>5</td>
-            <td>1</td>
-          </tr>
-    </table>
-</body>
-</html>`;
+import { FIELDS, ROW, HTML } from "./constants";
 
-const generateTable = (data: any) => {
-  return html;
+const searchValue = (
+  rows: [[string, string, string, string, string]],
+  id: string
+) => {
+  for (var i: number = 0; i < rows.length; i++) {
+    if (rows[i][1] === id) {
+      return Number(rows[i][4]);
+    }
+  }
+  return 0;
+};
+
+const generateTable = (
+  healthFacility: string,
+  rows: [[string, string, string, string, string]]
+) => {
+  const tableRows = [];
+
+  for (var i: number = 0; i < FIELDS.length; i++) {
+    let tableRow = ROW;
+    let cases = 0;
+    let controls = 0;
+
+    for (var x: number = 0; x < FIELDS[i].length; x++) {
+      const vals = FIELDS[i][x].split(",");
+      if (x === 0) {
+        tableRow = tableRow.replace(/__age__/, vals[1]);
+      }
+
+      const val = searchValue(rows, vals[0]);
+
+      switch (vals[3].trim()) {
+        case "Case":
+          cases += val;
+          tableRow =
+            vals[2].trim() === "Male"
+              ? tableRow.replace(/__male_case__/, String(val))
+              : tableRow.replace(/__female_case__/, String(val));
+          break;
+        case "Control":
+          controls += val;
+          tableRow =
+            vals[2].trim() === "Male"
+              ? tableRow.replace(/__male_control__/, String(val))
+              : tableRow.replace(/__female_control__/, String(val));
+          break;
+      }
+    }
+
+    tableRow = tableRow
+      .replace(/__case_total__/, String(cases))
+      .replace(/__control_total__/, String(controls))
+      .replace(/__all_sum__/, String(cases + controls));
+
+    tableRows.push(tableRow);
+  }
+  return HTML.replace(/__health_facility__/, healthFacility).replace(
+    /__rows__/,
+    tableRows.join("")
+  );
 };
 
 export default generateTable;
