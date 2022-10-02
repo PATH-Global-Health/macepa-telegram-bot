@@ -1,8 +1,10 @@
 import { Bot, InputFile } from "grammy";
+import { run } from "@grammyjs/runner";
 import type { ParseModeContext } from "@grammyjs/parse-mode";
 import { hydrateReply, parseMode } from "@grammyjs/parse-mode";
 import * as dotenv from "dotenv";
 import nodeHtmlToImage from "node-html-to-image";
+import schedule from "node-schedule";
 
 import { districtMenu, gzMenu, edMenu } from "./menu";
 import { getData, generateTable } from "./utils";
@@ -68,4 +70,17 @@ bot.hears("Back", async (ctx) => {
 });
 
 // Start the bot.
-bot.start();
+const runner = run(bot);
+
+const job = schedule.scheduleJob("5 * * * *", function () {
+  console.log("The answer to life, the universe, and everything!");
+});
+
+const stopRunner = async () => {
+  console.log("Stopping the bot and scheduler");
+  await schedule.gracefulShutdown();
+  runner.isRunning() && runner.stop();
+};
+
+process.once("SIGINT", stopRunner);
+process.once("SIGTERM", stopRunner);
