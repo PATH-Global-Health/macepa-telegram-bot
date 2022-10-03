@@ -1,28 +1,13 @@
-import { Bot, Context, InputFile, Keyboard } from "grammy";
+import { Bot } from "grammy";
 import * as dotenv from "dotenv";
-import nodeHtmlToImage from "node-html-to-image";
 import schedule from "node-schedule";
-import fs from "fs";
 
 import { districtKeyboard, gzKeyboard, edKeyboard } from "./keyboard";
-import { getData, generateTable } from "./utils";
-import { ORG_UNITS } from "./utils";
+import { ORG_UNITS, generateReport, reply } from "./utils";
 
 dotenv.config();
 
 const bot = new Bot(process.env.TELEGRAM_TOKEN!);
-
-const reply = async (ctx: Context, keyboard: Keyboard, fileName: string) => {
-  if (fs.existsSync(fileName)) {
-    await ctx.replyWithPhoto(new InputFile(fileName), {
-      reply_markup: keyboard,
-    });
-  } else {
-    await ctx.reply("Please try again later", {
-      reply_markup: keyboard,
-    });
-  }
-};
 
 bot.command(
   "start",
@@ -39,34 +24,34 @@ bot.on("message:text", async (ctx) => {
 
   switch (ctx.message.text) {
     case "Gondar Zuria":
-      reply(ctx, gzKeyboard, "./images/E42T5wtktJL.png");
+      reply(ctx, gzKeyboard, "E42T5wtktJL", "Gondar Zuria");
       break;
     case "Chinchaye":
-      reply(ctx, gzKeyboard, "./images/PP27kXYrC7p.png");
+      reply(ctx, gzKeyboard, "PP27kXYrC7p", "Chinchaye");
       break;
     case "Debre Selam":
-      reply(ctx, gzKeyboard, "./images/tAKQdfV6Qqa.png");
+      reply(ctx, gzKeyboard, "tAKQdfV6Qqa", "Debre Selam");
       break;
     case "Degola":
-      reply(ctx, gzKeyboard, "./images/hLWb32BOEpa.png");
+      reply(ctx, gzKeyboard, "hLWb32BOEpa", "Degola");
       break;
     case "Firqa Dangurie":
-      reply(ctx, gzKeyboard, "./images/UNdYuOEbHEi.png");
+      reply(ctx, gzKeyboard, "UNdYuOEbHEi", "Firqa Dangurie");
       break;
     case "East Dembia":
-      reply(ctx, edKeyboard, "./images/V1Ora4NbSEE.png");
+      reply(ctx, edKeyboard, "V1Ora4NbSEE", "East Dembia");
       break;
     case "Arebia":
-      reply(ctx, edKeyboard, "./images/ZqRY2qejFe8.png");
+      reply(ctx, edKeyboard, "ZqRY2qejFe8", "Arebia");
       break;
     case "Fenja":
-      reply(ctx, edKeyboard, "./images/LkNpXjhXdJO.png");
+      reply(ctx, edKeyboard, "LkNpXjhXdJO", "Fenja");
       break;
     case "Jangua":
-      reply(ctx, edKeyboard, "./images/Nimdjs72wnV.png");
+      reply(ctx, edKeyboard, "Nimdjs72wnV", "Jangua");
       break;
     case "Sufankara":
-      reply(ctx, edKeyboard, "./images/oNlTbCiJamP.png");
+      reply(ctx, edKeyboard, "oNlTbCiJamP", "Sufankara");
       break;
     case "Back":
       await ctx.reply("Select a district", {
@@ -82,13 +67,7 @@ bot.start();
 //At 02:00.
 const job = schedule.scheduleJob("0 2 * * *", async () => {
   for (const key in ORG_UNITS) {
-    const data = await getData(key);
-    const html = generateTable(ORG_UNITS[key], data.data["rows"]);
-    const fileName = `./images/${key}.png`;
-    await nodeHtmlToImage({
-      output: fileName,
-      html,
-    });
+    generateReport(key, ORG_UNITS[key]);
   }
   console.log("Table generation is complete.");
 });
