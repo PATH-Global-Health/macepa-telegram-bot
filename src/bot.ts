@@ -7,7 +7,7 @@ import { ORG_UNITS, generateReport, reply } from "./utils";
 
 dotenv.config();
 
-const bot = new Bot(process.env.TELEGRAM_TOKEN!);
+const bot = new Bot(process.env.BOT_TOKEN!);
 
 bot.command(
   "start",
