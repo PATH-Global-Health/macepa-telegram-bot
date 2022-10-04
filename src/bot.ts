@@ -1,11 +1,11 @@
 import { Bot } from "grammy";
-import * as dotenv from "dotenv";
+// import * as dotenv from "dotenv";
 import schedule from "node-schedule";
 
 import { districtKeyboard, gzKeyboard, edKeyboard } from "./keyboard";
 import { ORG_UNITS, generateReport, reply } from "./utils";
 
-dotenv.config();
+// dotenv.config();
 
 const bot = new Bot(process.env.BOT_TOKEN!);
 

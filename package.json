@@ -12,7 +12,6 @@
     "@grammyjs/menu": "^1.1.2",
     "@types/node-schedule": "^2.1.0",
     "axios": "^0.27.2",
-    "dotenv": "^16.0.2",
     "grammy": "^1.11.1",
     "html-to-image": "^1.10.8",
     "node-html-to-image": "^3.2.4",
