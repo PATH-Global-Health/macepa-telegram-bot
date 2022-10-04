@@ -62,8 +62,8 @@ const HTML = `
         <head>
             <style>
                 body {
-                    width: 500px;
-                    height: 250px;
+                    width: 550px;
+                    height: 350px;
                 }
                 table, th, td {
                     border: 1px solid black;
@@ -80,7 +80,6 @@ const HTML = `
                 }
                 td.center {
                     text-align: center;
-                    
                 }
                 td.bold {
                   font-weight: bold;

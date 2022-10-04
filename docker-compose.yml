@@ -1,15 +1,12 @@
-version: "3.3"
+version: "3.5"
 
 services:
   bot:
     build:
       context: "."
       dockerfile: Dockerfile
-    environment:
-      - BOT_TOKEN=
-      - DHIS2_ANALYTICS_API_URL=
-      - DHIS2_USERNAME=
-      - DHIS2_PASSWORD=
+    env_file:
+      - .env
     volumes:
-      - ".images:/app/images"
+      - "./images:/app/images"
     restart: always

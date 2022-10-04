@@ -10,9 +10,11 @@ const generateReport = async (orgUnitId: string, orgUnitName: string) => {
   const data = await getData(orgUnitId);
   const html = generateTable(orgUnitName, data.data["rows"]);
   const fileName = `./images/${orgUnitId}.png`;
+
   return nodeHtmlToImage({
     output: fileName,
     html,
+    puppeteerArgs: { headless: true, args: ["--no-sandbox", "--disable-gpu"] },
   });
 };
 
