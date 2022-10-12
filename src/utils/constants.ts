@@ -92,7 +92,7 @@ const HTML = `
                   color: red;
                 }
                 td.wrap{
-                  word-break: break-all;
+                  word-break: break-word;
                 }
             </style>
         </head>
