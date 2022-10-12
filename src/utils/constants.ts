@@ -118,7 +118,7 @@ const HTML = `
                     <td class="center bold wrap">Expected Controls</td>
                     <td class="center bold">Case</td>
                     <td class="center bold">Control</td>
-                    <td class="center bold">Expected</td>
+                    <td class="center bold">Expected Controls</td>
                 </tr>
                 __rows__
             </table>
