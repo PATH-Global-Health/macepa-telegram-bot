@@ -94,26 +94,18 @@ const generateTable = (
     tableRows.push(tableRow);
   }
 
-  const male_expected = total_male_case * 3 - total_male_control;
-  const female_expected = total_female_case * 3 - total_female_control;
   const control_total_expected = total_male_expected + total_female_expected;
 
   tableRows.push(
     ROW_LAST.replace(/__age__/, "Total")
       .replace(/__male_case__/, String(total_male_case))
       .replace(/__female_case__/, String(total_female_case))
-      .replace(
-        /__male_control_expected__/,
-        String(male_expected < 0 ? 0 : male_expected)
-      )
-      .replace(/__male_red__/, male_expected > 0 ? "red" : "")
+      .replace(/__male_control_expected__/, String(total_male_expected))
+      .replace(/__male_red__/, total_male_expected > 0 ? "red" : "")
       .replace(/__male_control__/, String(total_male_control))
       .replace(/__female_control__/, String(total_female_control))
-      .replace(
-        /__female_control_expected__/,
-        String(female_expected < 0 ? 0 : female_expected)
-      )
-      .replace(/__female_red__/, female_expected > 0 ? "red" : "")
+      .replace(/__female_control_expected__/, String(total_female_expected))
+      .replace(/__female_red__/, total_female_expected > 0 ? "red" : "")
       .replace(/__case_total__/, String(total_male_case + total_female_case))
       .replace(
         /__control_total__/,
