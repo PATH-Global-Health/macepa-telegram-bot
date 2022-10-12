@@ -66,8 +66,8 @@ const generateTable = (
       }
     }
 
-    const male_expected = male_case * 3 + male_control;
-    const female_expected = female_case * 3 + female_control;
+    const male_expected = male_case * 3 - male_control;
+    const female_expected = female_case * 3 - female_control;
     const control_total_expected =
       (male_expected < 0 ? 0 : male_expected) +
       (female_expected < 0 ? 0 : female_expected);
@@ -90,8 +90,8 @@ const generateTable = (
     tableRows.push(tableRow);
   }
 
-  const male_expected = total_male_case * 3 + total_male_control;
-  const female_expected = total_female_case * 3 + total_female_control;
+  const male_expected = total_male_case * 3 - total_male_control;
+  const female_expected = total_female_case * 3 - total_female_control;
   const control_total_expected =
     (male_expected < 0 ? 0 : male_expected) +
     (female_expected < 0 ? 0 : female_expected);
