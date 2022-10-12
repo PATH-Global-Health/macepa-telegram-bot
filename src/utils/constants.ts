@@ -36,11 +36,13 @@ const ROW = `
       <td class="center" style="background-color: rgb(230, 230, 230)">__age__</td>
       <td>__male_case__</td>
       <td>__male_control__</td>
+      <td>__male_control_expected__</td>
       <td>__female_case__</td>
       <td>__female_control__</td>
+      <td>__female_control_expected__</td>
       <td>__case_total__</td>
       <td>__control_total__</td>
-      <td>__all_sum__</td>
+      <td>__control_total_expected__</td>
     </tr>
   `;
 
@@ -49,11 +51,13 @@ const ROW_LAST = `
       <td class="center bold" >__age__</td>
       <td class="bold">__male_case__</td>
       <td class="bold">__male_control__</td>
+      <td class="bold">__male_control_expected__</td>
       <td class="bold">__female_case__</td>
       <td class="bold">__female_control__</td>
+      <td class="bold">__female_control_expected__</td>
       <td class="bold">__case_total__</td>
       <td class="bold">__control_total__</td>
-      <td class="bold">__all_sum__</td>
+      <td class="bold">__control_total_expected__</td>
     </tr>
   `;
 
@@ -90,23 +94,25 @@ const HTML = `
         <br />
             <table>
                 <tr style="background-color: rgb(230, 230, 230)">
-                    <th colspan="8">__health_facility__</th>
+                    <th colspan="10">__health_facility__</th>
                 </tr>
                 <tr style="background-color: rgb(230, 230, 230)">
                     <th>&nbsp;</th>
-                    <th colspan="2">Male</th>
-                    <th colspan="2">Female</th>
+                    <th colspan="3">Male</th>
+                    <th colspan="3">Female</th>
                     <th colspan="3">Total</th>
                 </tr>
                 <tr style="background-color: rgb(230, 230, 230)">
                     <td class="center bold">Age</td>
                     <td class="center bold">Case</td>
                     <td class="center bold">Control</td>
+                    <td class="center bold">Expected</td>
                     <td class="center bold">Case</td>
                     <td class="center bold">Control</td>
+                    <td class="center bold">Expected</td>
                     <td class="center bold">Case</td>
                     <td class="center bold">Control</td>
-                    <td class="center bold">Total</td>
+                    <td class="center bold">Expected</td>
                 </tr>
                 __rows__
             </table>
