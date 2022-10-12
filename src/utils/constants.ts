@@ -36,13 +36,13 @@ const ROW = `
       <td class="center" style="background-color: rgb(230, 230, 230)">__age__</td>
       <td>__male_case__</td>
       <td>__male_control__</td>
-      <td>__male_control_expected__</td>
+      <td class="__male_red__">__male_control_expected__</td>
       <td>__female_case__</td>
       <td>__female_control__</td>
-      <td>__female_control_expected__</td>
+      <td class="__female_red__">__female_control_expected__</td>
       <td>__case_total__</td>
       <td>__control_total__</td>
-      <td>__control_total_expected__</td>
+      <td class="__total_red__">__control_total_expected__</td>
     </tr>
   `;
 
@@ -51,13 +51,13 @@ const ROW_LAST = `
       <td class="center bold" >__age__</td>
       <td class="bold">__male_case__</td>
       <td class="bold">__male_control__</td>
-      <td class="bold">__male_control_expected__</td>
+      <td class="bold __male_red__">__male_control_expected__</td>
       <td class="bold">__female_case__</td>
       <td class="bold">__female_control__</td>
-      <td class="bold">__female_control_expected__</td>
+      <td class="bold __female_red__">__female_control_expected__</td>
       <td class="bold">__case_total__</td>
       <td class="bold">__control_total__</td>
-      <td class="bold">__control_total_expected__</td>
+      <td class="bold __total_red__">__control_total_expected__</td>
     </tr>
   `;
 
@@ -87,6 +87,9 @@ const HTML = `
                 }
                 td.bold {
                   font-weight: bold;
+                }
+                td.red {
+                  color: red;
                 }
             </style>
         </head>

@@ -76,13 +76,16 @@ const generateTable = (
         /__male_control_expected__/,
         String(male_expected < 0 ? 0 : male_expected)
       )
+      .replace(/__male_red__/, male_expected > 0 ? "red" : "")
       .replace(
         /__female_control_expected__/,
         String(female_expected < 0 ? 0 : female_expected)
       )
+      .replace(/__female_red__/, female_expected > 0 ? "red" : "")
       .replace(/__case_total__/, String(male_case + female_case))
       .replace(/__control_total__/, String(male_control + female_control))
-      .replace(/__control_total_expected__/, String(control_total_expected));
+      .replace(/__control_total_expected__/, String(control_total_expected))
+      .replace(/__total_red__/, control_total_expected > 0 ? "red" : "");
 
     tableRows.push(tableRow);
   }
@@ -101,18 +104,21 @@ const generateTable = (
         /__male_control_expected__/,
         String(male_expected < 0 ? 0 : male_expected)
       )
+      .replace(/__male_red__/, male_expected > 0 ? "red" : "")
       .replace(/__male_control__/, String(total_male_control))
       .replace(/__female_control__/, String(total_female_control))
       .replace(
         /__female_control_expected__/,
         String(female_expected < 0 ? 0 : female_expected)
       )
+      .replace(/__female_red__/, female_expected > 0 ? "red" : "")
       .replace(/__case_total__/, String(total_male_case + total_female_case))
       .replace(
         /__control_total__/,
         String(total_male_control + total_female_control)
       )
       .replace(/__control_total_expected__/, String(control_total_expected))
+      .replace(/__total_red__/, control_total_expected > 0 ? "red" : "")
   );
 
   return HTML.replace(/__health_facility__/, healthFacility).replace(
