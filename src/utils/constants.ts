@@ -91,6 +91,9 @@ const HTML = `
                 td.red {
                   color: red;
                 }
+                td.wrap{
+                  word-break: break-all;
+                }
             </style>
         </head>
         <body>
@@ -109,10 +112,10 @@ const HTML = `
                     <td class="center bold">Age</td>
                     <td class="center bold">Case</td>
                     <td class="center bold">Control</td>
-                    <td class="center bold">Expected</td>
+                    <td class="center bold wrap">Expected Controls</td>
                     <td class="center bold">Case</td>
                     <td class="center bold">Control</td>
-                    <td class="center bold">Expected</td>
+                    <td class="center bold wrap">Expected Controls</td>
                     <td class="center bold">Case</td>
                     <td class="center bold">Control</td>
                     <td class="center bold">Expected</td>
