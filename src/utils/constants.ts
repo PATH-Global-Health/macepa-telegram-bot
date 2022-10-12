@@ -66,7 +66,7 @@ const HTML = `
         <head>
             <style>
                 body {
-                    width: 650px;
+                    width: 800px;
                     height: 350px;
                 }
                 table, th, td {
