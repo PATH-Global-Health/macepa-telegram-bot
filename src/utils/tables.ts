@@ -70,11 +70,10 @@ const generateTable = (
 
     const male_expected = male_case * 3 - male_control;
     const female_expected = female_case * 3 - female_control;
-    total_male_expected += male_expected;
-    total_female_expected += female_expected;
-    const control_total_expected =
-      (male_expected < 0 ? 0 : male_expected) +
-      (female_expected < 0 ? 0 : female_expected);
+    total_male_expected += male_expected < 0 ? 0 : male_expected;
+    total_female_expected += female_expected < 0 ? 0 : female_expected;
+    const control_total_expected = total_male_expected + total_female_expected;
+
     tableRow = tableRow
       .replace(
         /__male_control_expected__/,
