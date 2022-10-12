@@ -22,6 +22,8 @@ const generateTable = (
   let total_female_case = 0;
   let total_male_control = 0;
   let total_female_control = 0;
+  let total_male_expected = 0;
+  let total_female_expected = 0;
 
   for (var i: number = 0; i < FIELDS.length; i++) {
     let tableRow = ROW;
@@ -68,6 +70,8 @@ const generateTable = (
 
     const male_expected = male_case * 3 - male_control;
     const female_expected = female_case * 3 - female_control;
+    total_male_expected += male_expected;
+    total_female_expected += female_expected;
     const control_total_expected =
       (male_expected < 0 ? 0 : male_expected) +
       (female_expected < 0 ? 0 : female_expected);
@@ -92,9 +96,7 @@ const generateTable = (
 
   const male_expected = total_male_case * 3 - total_male_control;
   const female_expected = total_female_case * 3 - total_female_control;
-  const control_total_expected =
-    (male_expected < 0 ? 0 : male_expected) +
-    (female_expected < 0 ? 0 : female_expected);
+  const control_total_expected = total_male_expected + total_female_expected;
 
   tableRows.push(
     ROW_LAST.replace(/__age__/, "Total")
